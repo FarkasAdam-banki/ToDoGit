@@ -1,0 +1,151 @@
+body {
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    background-color: #2d2d2d;
+    color: white;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.top-bar {
+    background-color: #232323;
+    color: #a1a1a1;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: relative;
+}
+
+.title {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 20px;
+}
+
+.search-icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.search-input {
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #a1a1a1;
+    height: 25px;
+    width: 175px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 100px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #232323;
+    overflow-x: hidden;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    font-size: 25px;
+    display: block;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.sidenav .newbtn{
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    
+}
+
+.sidenav .separator {
+    height: 1000px;
+    width: 100%;
+}
+
+.sideBtns{
+    text-align: center;
+
+}
+
+main {
+    margin-left: 100px;
+    padding: 15px;
+}
+
+
+.toDo {
+    display: grid;
+    grid-template-columns: 75% 7% 10% 1fr;
+    font-size: x-large;
+    border-right: #a1a1a1 2px solid;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    margin-left: 10px;
+}
+
+@media only screen and (min-width:1200px) {
+    #toDoS {
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+}
+
+.nameContainer {
+    background-color: aqua;
+    border-radius: 10px;
+    height: 95%;
+    padding: 5px 0;
+
+}
+
+.name {
+    background-color: #2d2d2daa;
+    padding-right: 70px;
+    padding-left: 70px;
+    border-radius: 15px;
+
+
+}
+
