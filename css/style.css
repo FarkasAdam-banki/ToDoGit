@@ -340,3 +340,41 @@ main {
     padding-top: 10px;
     margin-left: 10px;
 }
+
+@media only screen and (min-width:1200px) {
+    #toDoS-Remove {
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+}
+
+.toDoAddSubTaskName{
+    margin-bottom: 40px;
+    border-bottom: #a1a1a1 1px solid;
+}
+
+
+
+
+input[type="date"] {
+    background-color: #c0c0c0;
+    padding: 20px; 
+    width: 218px; 
+    height: 100px; 
+    font-family: "Roboto Mono", monospace;
+    color: #000000;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+::-webkit-calendar-picker-indicator {
+    background-color: #a1a1a1;
+    padding: 10px; 
+    cursor: pointer;
+    border-radius: 3px;
+}
+
