@@ -92,7 +92,6 @@ body {
     top: 10px;
     right: 25px;
     font-size: 36px;
-    
 }
 
 .sidenav .separator {
@@ -145,8 +144,6 @@ main {
     padding-right: 70px;
     padding-left: 70px;
     border-radius: 15px;
-
-
 }
 
 .toDoAddName {
@@ -199,8 +196,6 @@ main {
     }
     
 }
-
-
 
 
 .custom-range::-webkit-slider-thumb {
@@ -258,8 +253,6 @@ main {
 .rightState{
     text-align: right;
 }
-
-
 
 .toDoAddSubtask{
     margin-top:5px ;
@@ -327,8 +320,6 @@ main {
     padding: 10px;
 }
 
-
-
 .toDo-Remove {
     display: grid;
     grid-template-columns: 75% 7% 10% 1fr;
@@ -354,8 +345,6 @@ main {
     margin-bottom: 40px;
     border-bottom: #a1a1a1 1px solid;
 }
-
-
 
 
 input[type="date"] {
