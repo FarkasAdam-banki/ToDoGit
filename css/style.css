@@ -149,3 +149,194 @@ main {
 
 }
 
+.toDoAddName {
+    padding: 5px;
+    font-size: 23px;
+    border: solid 5px #5e5e5e;
+    border-radius: 20px;
+    background-color: #5e5e5e;
+    height: 40px;
+    width: 370px;
+    color: #dbdbdb;
+}
+
+::placeholder {
+    color: #dbdbdb;
+    font-size: 23px;
+}
+
+
+.toDoAddState {
+    align-items: center;
+    display: grid;
+    padding-left: 20px;
+   
+
+}
+
+.toDoAddStateText{
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media only screen and (min-width:1400px) {
+    .toDoAddContainer{
+        display: grid;
+        grid-template-columns: 60% 1fr;
+    }
+
+    .toDoAddName_State {
+        display: grid;
+        width: 95%;
+        grid-template-columns: 1fr 1fr 10%;
+    }
+    .toDoAddSubTaskName{
+        display: grid;
+        width: 95%;
+        grid-template-columns: min-content 1fr 1fr;
+    
+    }
+    
+}
+
+
+
+
+.custom-range::-webkit-slider-thumb {
+    background-color: white; 
+    border: 1px solid #dee2e6; 
+    width: 1.2rem; 
+    height: 1.2rem; 
+    margin-top: -0.4rem; 
+}
+
+.custom-range::-moz-range-thumb {
+    background-color: white; 
+    border: 1px solid #dee2e6;
+    width: 1.2rem; 
+    height: 1.2rem; 
+    margin-top: -0.4rem; 
+}
+
+.custom-range::-ms-thumb {
+    background-color: white; 
+    border: 1px solid #dee2e6; 
+    width: 1.2rem; 
+    height: 1.2rem; 
+    margin-top: -0.4rem;
+}
+
+
+.custom-range::-webkit-slider-runnable-track {
+    background-color: black;
+}
+
+.custom-range::-moz-range-track {
+    background-color: black;
+}
+
+.custom-range::-ms-track {
+    background-color: black;
+}
+
+
+.custom-range::-moz-range-progress {
+    background-color: white;
+}
+
+.custom-range::-ms-fill-lower {
+    background-color: white;
+}
+
+.leftState{
+    text-align: left;
+}
+.centerState{
+    text-align: center;
+}
+.rightState{
+    text-align: right;
+}
+
+
+
+.toDoAddSubtask{
+    margin-top:5px ;
+    height:500px;
+    width: 95%;
+    overflow:auto;
+    background-color:#2d2d2d;
+    color:white;
+    font-family:sans-serif
+    ;padding:10px;
+
+}
+
+.toDoAddRight{
+   
+    display: grid;
+    grid-template-rows: 1fr 100px 1fr;
+}
+.toDoAddRightCenter{
+   
+    text-align: center;
+}
+
+.colorPicker{
+    width: 300px;
+    height: 300px;
+}
+.colorLabel{
+    text-align: left;
+}
+.Labels{
+    font-size: x-large;
+    color: #AFAFAF;
+    font-weight: bold;
+}
+
+.create-btn{
+    border: black solid 2px;
+    font-size:x-large;
+    background-color: #005e24;
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 25px;
+    text-align: center;
+    font-weight: bold;
+
+}
+.create{
+    text-align: center;
+}
+
+.highlight img:hover{
+    background-color: red;
+    opacity: 0.5;
+    border-radius: 30%;
+   
+}
+.hover img:hover{
+    border: 4px solid;
+    border-color: #a1a1a1 ;
+    border-radius: 20%;
+    padding: 5px;
+}
+.hover{
+    padding: 10px;
+}
+
+
+
+.toDo-Remove {
+    display: grid;
+    grid-template-columns: 75% 7% 10% 1fr;
+    font-size: x-large;
+    border-right: #a1a1a1 2px solid;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    margin-left: 10px;
+}
