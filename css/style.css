@@ -77,15 +77,7 @@ body {
     display: block;
 }
 
-@media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
 
-    .sidenav a {
-        font-size: 18px;
-    }
-}
 
 .sidenav .newbtn{
     position: absolute;
@@ -122,6 +114,15 @@ main {
     margin-left: 10px;
 }
 
+@media only screen and (min-width:900px) {
+    #toDoS {
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+    }
+
+}
+
 @media only screen and (min-width:1200px) {
     #toDoS {
         height: fit-content;
@@ -130,6 +131,8 @@ main {
     }
 
 }
+
+
 
 .nameContainer {
     background-color: aqua;
@@ -153,7 +156,7 @@ main {
     border-radius: 20px;
     background-color: #5e5e5e;
     height: 40px;
-    width: 370px;
+    width: 100%;
     color: #dbdbdb;
 }
 
@@ -177,7 +180,44 @@ main {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-@media only screen and (min-width:1400px) {
+@media only screen and (min-width:700px) {
+    .toDoAddName_State {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+    .toDoAddSubTaskName{
+        display: grid;
+        width: 100%;
+        grid-template-columns: min-content 1fr 1fr;
+    
+    }
+    .toDoAddRightCenter{
+        height: min-content;
+    }
+    
+    .toDoAddSubtask{
+        margin-top:5px ;
+        margin-bottom:30px ;
+        height:300px;
+        width: 95%;
+        overflow:auto;
+        background-color:#2d2d2d;
+        color:white;
+        font-family:sans-serif;
+        padding:10px;
+        
+    
+    }
+
+    .toDoAddName_State{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (min-width:1300px) {
     .toDoAddContainer{
         display: grid;
         grid-template-columns: 60% 1fr;
@@ -194,7 +234,33 @@ main {
         grid-template-columns: min-content 1fr 1fr;
     
     }
+    .toDoAddSubtask{
+        margin-top:5px ;
+        height:500px;
+        width: 95%;
+        overflow:auto;
+        background-color:#2d2d2d;
+        color:white;
+        font-family:sans-serif;
+        padding:10px;
+        
     
+    }
+    
+}
+
+.toDoAddSubtask{
+    margin-top:5px ;
+    margin-bottom:30px ;
+    height:300px;
+    width: 95%;
+    overflow:auto;
+    background-color:#2d2d2d;
+    color:white;
+    font-family:sans-serif;
+    padding:10px;
+    
+
 }
 
 
@@ -254,22 +320,12 @@ main {
     text-align: right;
 }
 
-.toDoAddSubtask{
-    margin-top:5px ;
-    height:500px;
-    width: 95%;
-    overflow:auto;
-    background-color:#2d2d2d;
-    color:white;
-    font-family:sans-serif
-    ;padding:10px;
 
-}
 
 .toDoAddRight{
    
     display: grid;
-    grid-template-rows: 1fr 100px 1fr;
+    grid-template-rows: 1fr 1px 1fr;
 }
 .toDoAddRightCenter{
    
@@ -318,6 +374,8 @@ main {
 }
 .hover{
     padding: 10px;
+    
+    
 }
 
 .toDo-Remove {
@@ -330,6 +388,15 @@ main {
     padding-bottom: 30px;
     padding-top: 10px;
     margin-left: 10px;
+}
+
+@media only screen and (min-width:900px) {
+    #toDoS-Remove {
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+    }
+
 }
 
 @media only screen and (min-width:1200px) {
@@ -366,4 +433,50 @@ input[type="date"] {
     cursor: pointer;
     border-radius: 3px;
 }
+
+@media only screen and (max-width:1200px) {
+    .title{
+        display: none;
+    }
+}
+    
+@media only screen and (min-width:800px) {
+    .top-button{
+        display: none;
+    }
+
+}
+@media only screen and (max-width:800px) {
+    .sidenav{
+        display: none;
+    }
+    main{
+        margin-left:0px;
+    }
+
+}
+
+.top-button {
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .top-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #a1a1a1;
+    color: #222222;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    transition: color 0.5s ease;
+  }
+  
+  .top-button:hover {
+    background-color: #555;
+    color:#fff;
+  }
 
