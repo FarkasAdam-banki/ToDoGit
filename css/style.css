@@ -80,7 +80,7 @@ body {
 
 
 .sidenav .newbtn{
-    position: absolute;
+    
     top: 10px;
     right: 25px;
     font-size: 36px;
@@ -112,24 +112,6 @@ main {
     padding-bottom: 30px;
     padding-top: 10px;
     margin-left: 10px;
-}
-
-@media only screen and (min-width:900px) {
-    #toDoS {
-        height: fit-content;
-        display: grid;
-        grid-template-columns: 1fr 1fr ;
-    }
-
-}
-
-@media only screen and (min-width:1200px) {
-    #toDoS {
-        height: fit-content;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
 }
 
 
@@ -169,7 +151,8 @@ main {
 .toDoAddState {
     align-items: center;
     display: grid;
-    padding-left: 20px;
+    
+    
    
 
 }
@@ -180,74 +163,9 @@ main {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-@media only screen and (min-width:700px) {
-    .toDoAddName_State {
-        display: grid;
-        width: 100%;
-        grid-template-columns: 1fr;
-    }
-    .toDoAddSubTaskName{
-        display: grid;
-        width: 100%;
-        grid-template-columns: min-content 1fr 1fr;
-    
-    }
-    .toDoAddRightCenter{
-        height: min-content;
-    }
-    
-    .toDoAddSubtask{
-        margin-top:5px ;
-        margin-bottom:30px ;
-        height:300px;
-        width: 95%;
-        overflow:auto;
-        background-color:#2d2d2d;
-        color:white;
-        font-family:sans-serif;
-        padding:10px;
-        
-    
-    }
 
-    .toDoAddName_State{
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
 
-@media only screen and (min-width:1300px) {
-    .toDoAddContainer{
-        display: grid;
-        grid-template-columns: 60% 1fr;
-    }
 
-    .toDoAddName_State {
-        display: grid;
-        width: 95%;
-        grid-template-columns: 1fr 1fr 10%;
-    }
-    .toDoAddSubTaskName{
-        display: grid;
-        width: 95%;
-        grid-template-columns: min-content 1fr 1fr;
-    
-    }
-    .toDoAddSubtask{
-        margin-top:5px ;
-        height:500px;
-        width: 95%;
-        overflow:auto;
-        background-color:#2d2d2d;
-        color:white;
-        font-family:sans-serif;
-        padding:10px;
-        
-    
-    }
-    
-}
 
 .toDoAddSubtask{
     margin-top:5px ;
@@ -366,16 +284,28 @@ main {
     border-radius: 30%;
    
 }
-.hover img:hover{
-    border: 4px solid;
+.hover:hover{
     border-color: #a1a1a1 ;
-    border-radius: 20%;
-    padding: 5px;
+    
 }
 .hover{
+    border: 4px solid;
+    border-color: #232323;
+    border-radius: 20%;
+    padding: 5px;
     padding: 10px;
+}
+
+.hover2:hover{
+    border-color: #a1a1a1 ;
     
-    
+}
+.hover2{
+    border: 4px solid;
+    border-color: #2d2d2d;
+    border-radius: 20%;
+    padding: 5px;
+    padding: 10px;
 }
 
 .toDo-Remove {
@@ -390,23 +320,7 @@ main {
     margin-left: 10px;
 }
 
-@media only screen and (min-width:900px) {
-    #toDoS-Remove {
-        height: fit-content;
-        display: grid;
-        grid-template-columns: 1fr 1fr ;
-    }
 
-}
-
-@media only screen and (min-width:1200px) {
-    #toDoS-Remove {
-        height: fit-content;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
-}
 
 .toDoAddSubTaskName{
     margin-bottom: 40px;
@@ -433,29 +347,6 @@ input[type="date"] {
     cursor: pointer;
     border-radius: 3px;
 }
-
-@media only screen and (max-width:1200px) {
-    .title{
-        display: none;
-    }
-}
-    
-@media only screen and (min-width:800px) {
-    .top-button{
-        display: none;
-    }
-
-}
-@media only screen and (max-width:800px) {
-    .sidenav{
-        display: none;
-    }
-    main{
-        margin-left:0px;
-    }
-
-}
-
 .top-button {
     display: inline-block;
     overflow: hidden;
@@ -479,4 +370,141 @@ input[type="date"] {
     background-color: #555;
     color:#fff;
   }
+
+@media only screen and (max-width:1200px) {
+    .title{
+        display: none;
+    }
+}
+    
+@media only screen and (max-width:800px) {
+    .sidenav{
+        display: none;
+    }
+    main{
+        margin-left:0px;
+    }
+
+}
+
+@media only screen and (min-width:800px) {
+
+    .top-button{
+        display: none;
+    }
+}
+
+@media only screen and (min-width:800px) {
+    #toDoS {
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+    }
+
+}
+
+@media only screen and (min-width:1200px) {
+    #toDoS {
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .toDoAddState{
+        padding-left: 20px;
+    }
+
+}
+
+@media only screen and (min-width:800px) {
+    #toDoS-Remove {
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+    }
+    .top-button{
+        display: none;
+    }
+
+}
+
+@media only screen and (min-width:1200px) {
+    #toDoS-Remove {
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+}
+
+@media only screen and (min-width:700px) {
+    .toDoAddName_State {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+    .toDoAddSubTaskName{
+        display: grid;
+        width: 100%;
+        grid-template-columns: min-content 1fr 1fr;
+    
+    }
+    .toDoAddRightCenter{
+        height: min-content;
+    }
+    
+    .toDoAddSubtask{
+        margin-top:5px ;
+        margin-bottom:30px ;
+        height:300px;
+        width: 95%;
+        overflow:auto;
+        background-color:#2d2d2d;
+        color:white;
+        font-family:sans-serif;
+        padding:10px;
+        
+    
+    }
+
+    .toDoAddName_State{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (min-width:1300px) {
+    .toDoAddContainer{
+        display: grid;
+        grid-template-columns: 60% 1fr;
+    }
+
+    .toDoAddName_State {
+        display: grid;
+        width: 95%;
+        grid-template-columns: 1fr 1fr 10%;
+        margin: 0px;
+    }
+    .toDoAddSubTaskName{
+        display: grid;
+        width: 95%;
+        grid-template-columns: min-content 1fr 1fr;
+    
+    }
+    .toDoAddSubtask{
+        margin-top:5px ;
+        height:500px;
+        width: 95%;
+        overflow:auto;
+        background-color:#2d2d2d;
+        color:white;
+        font-family:sans-serif;
+        padding:10px;
+        
+    
+    }
+    
+}
+
+
 
