@@ -76,8 +76,6 @@ body {
     display: block;
 }
 
-
-
 .sidenav .newbtn{
     
     top: 10px;
@@ -100,7 +98,6 @@ main {
     padding: 15px;
 }
 
-
 .toDo {
     display: grid;
     grid-template-columns: 75% 7% 10% 1fr;
@@ -113,21 +110,20 @@ main {
     margin-left: 10px;
 }
 
-
-
 .nameContainer {
     background-color: aqua;
     border-radius: 10px;
     height: 95%;
     padding: 5px 0;
-
+    overflow:hidden;
 }
 
 .name {
     background-color: #2d2d2daa;
-    padding-right: 70px;
-    padding-left: 70px;
+    padding-right: 5%;
+    padding-left: 5%;
     border-radius: 15px;
+    
 }
 
 .toDoAddName {
@@ -150,9 +146,6 @@ main {
 .toDoAddState {
     align-items: center;
     display: grid;
-    
-    
-   
 
 }
 
@@ -161,9 +154,6 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
-
-
-
 
 
 .toDoAddSubtask{
@@ -176,10 +166,7 @@ main {
     color:white;
     font-family:sans-serif;
     padding:10px;
-    
-
 }
-
 
 .custom-range::-webkit-slider-thumb {
     background-color: white; 
@@ -204,7 +191,6 @@ main {
     height: 1.2rem; 
     margin-top: -0.4rem;
 }
-
 
 .custom-range::-webkit-slider-runnable-track {
     background-color: black;
@@ -236,8 +222,6 @@ main {
 .rightState{
     text-align: right;
 }
-
-
 
 .toDoAddRight{
    
@@ -277,7 +261,14 @@ main {
     text-align: center;
 }
 
-.highlight img:hover{
+.highlight{
+    background-color: red;
+    opacity: 0.5;
+    border-radius: 30%;
+   
+}
+
+.highlight2 img:hover{
     background-color: red;
     opacity: 0.5;
     border-radius: 30%;
@@ -370,6 +361,21 @@ input[type="date"] {
     color:#fff;
   }
 
+
+  .alertDiv{
+    position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 700px;
+  text-align: center;
+
+  }
+  .alert{
+    word-wrap: break-word;
+  }
+
 @media only screen and (max-width:1200px) {
     .title{
         display: none;
@@ -445,7 +451,6 @@ input[type="date"] {
         display: grid;
         width: 100%;
         grid-template-columns: min-content 1fr 1fr;
-    
     }
     .toDoAddRightCenter{
         height: min-content;
@@ -461,8 +466,6 @@ input[type="date"] {
         color:white;
         font-family:sans-serif;
         padding:10px;
-        
-    
     }
 
     .toDoAddName_State{
@@ -499,11 +502,6 @@ input[type="date"] {
         color:white;
         font-family:sans-serif;
         padding:10px;
-        
-    
     }
     
 }
-
-
-
