@@ -8,9 +8,10 @@ function clear() {
 }
 function start() {
     clear();
-
+    displayTodos();
+    displayTodosRemove()
     document.querySelector(".toDoList").style.display = "block";
-    
+
 }
 
 function disappear() {
@@ -35,33 +36,38 @@ function addDel(name, state, deadline, color) {
 
 
 
-var add = document.querySelector(".newbtn");
-var edit = document.querySelector(".editbtn");
-var del = document.querySelector(".deletebtn");
+var add = document.querySelectorAll(".newbtn");
+var edit = document.querySelectorAll(".editbtn");
+var del = document.querySelectorAll(".deletebtn");
 var bottombtns = document.querySelectorAll(".bottombtn");
 var subtasks = document.querySelector(".addSubTask");
 
-add.addEventListener("click", function () {
-    clear();
-    document.querySelector(".toDoAdd").style.display = "block";
-    document.querySelector(".title").innerHTML = "Új feladat létrehozása";
-    disappear();
+add.forEach(function (button) {
+    button.addEventListener("click", function () {
+        clear();
+        document.querySelector(".toDoAdd").style.display = "block";
+        document.querySelector(".title").innerHTML = "Új feladat létrehozása";
+        disappear();
 
+    })
 })
-edit.addEventListener("click", function () {
+edit.forEach(function (button) {
+button.addEventListener("click", function () {
     clear();
     document.querySelector(".toDoList").style.display = "block";
     document.querySelector(".title").innerHTML = "TEENDŐK";
     appear();
-
 })
-del.addEventListener("click", function () {
+})
+del.forEach(function (button) {
+button.addEventListener("click", function () {
     clear();
     document.querySelector(".toDoDel").style.display = "block";
     document.querySelector(".title").innerHTML = "TEENDŐK-TÖRLÉSE";
     appear();
 })
 
+})
 
 var subTaskIndex = 0;
 
@@ -84,7 +90,6 @@ function addSubTaskElement() {
         '<div class="rightState">elkészült</div>' +
         '</div>';
 
-    
     subTaskElement.querySelector(".subTaskDelete").addEventListener("click", function () {
         subTaskElement.remove();
     });
@@ -111,12 +116,9 @@ todo4.addSubtask(new Subtask('Hozzávalók beszerzése', 2));
 
 const todo5 = new Todo('Sportolás', 1, '2024-02-15', '#2ecc71');
 
-
 toDoList.push(todo1, todo2, todo3, todo4, todo5);
 
-
 start();
-
 
 document.querySelector(".create-btn").addEventListener("click", function () {
     const name = document.querySelector(".toDoAddName").value;
@@ -126,7 +128,7 @@ document.querySelector(".create-btn").addEventListener("click", function () {
 
     if (name == "") {
         document.querySelector(".alertDiv").innerHTML = '<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
-            '<strong>Kérjük A létrehozáshoz adjon meg egy nevet!</strong><br> You should check in on some of those fields below.' +
+            '<strong>Kérjük A létrehozáshoz adjon meg egy nevet!</strong><br> Érdemes a feladathoz egyértelmű nevet adni.' +
             '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
             '</div>';
 
@@ -144,7 +146,136 @@ document.querySelector(".create-btn").addEventListener("click", function () {
         toDoList.push(todo);
 
         console.log(toDoList);
-        
+        document.querySelector(".alertDiv").innerHTML = '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
+            '<strong>A Teendő létrehozása sikeres volt!</strong><br> A Teendőidet megtekintheted a Teendők-listája menüben' +
+            '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
+            '</div>';
+
+        let placesToAdd = document.querySelector(".toDoAddSubtask")
+        placesToAdd.innerHTML = ""
+        addDel(name, state, deadline, color);
+        displayTodos();
+        displayTodosRemove();
     }
 });
 
+function displayTodos() {
+    let Lplace = document.querySelector("#toDoS");
+    Lplace.innerHTML = "";
+
+    for (let i = 0; i < toDoList.length; i++) {
+        let todoElement = document.createElement('div');
+        todoElement.classList.add('toDo');
+
+        let nameContainer = document.createElement('div');
+        nameContainer.classList.add('nameContainer');
+        nameContainer.style.backgroundColor = toDoList[i].getColor();
+
+        let nameSpan = document.createElement('span');
+        nameSpan.classList.add('name');
+        nameSpan.textContent = toDoList[i].getName() + " ";
+
+        if (toDoList[i].getSubtasks().length > 0) {
+            let subtaskIcon = document.createElement('img');
+            subtaskIcon.src = 'images/subtask.png';
+            subtaskIcon.alt = 'Alfeladatok vannak';
+            subtaskIcon.title = 'Alfeladatok vannak';
+            nameSpan.appendChild(subtaskIcon);
+        }
+
+        let gapDiv = document.createElement('div');
+        gapDiv.classList.add('gap');
+
+        let iconImg = document.createElement('img');
+        iconImg.alt = '';
+        iconImg.title = '';
+
+        switch (parseInt(toDoList[i].getState())) {
+            case 1:
+                iconImg.src = 'images/close.png';
+                iconImg.alt = 'Várakozó feladat';
+                iconImg.title = 'Várakozó feladat';
+                break;
+            case 2:
+                iconImg.src = 'images/ong.png';
+                iconImg.alt = 'Folyamatban lévő feladat';
+                iconImg.title = 'Folyamatban lévő feladat';
+                break;
+            case 3:
+                iconImg.src = 'images/check.png';
+                iconImg.alt = 'Kész feladat';
+                iconImg.title = 'Kész feladat';
+                break;
+        }
+
+        nameContainer.appendChild(nameSpan);
+        todoElement.appendChild(nameContainer);
+        todoElement.appendChild(gapDiv);
+        todoElement.appendChild(iconImg);
+        Lplace.appendChild(todoElement);
+    }
+}
+
+function displayTodosRemove() {
+    let Dplace = document.querySelector("#toDoS-Remove");
+    Dplace.innerHTML = "";
+
+    toDoList.forEach((todo, i) => {
+        let todoElement = document.createElement('div');
+        todoElement.classList.add('toDo');
+
+        let nameContainer = document.createElement('div');
+        nameContainer.classList.add('nameContainer');
+        nameContainer.style.backgroundColor = todo.getColor();
+
+        let nameSpan = document.createElement('span');
+        nameSpan.classList.add('name');
+        nameSpan.textContent = todo.getName();
+
+        let gapDiv = document.createElement('div');
+        gapDiv.classList.add('gap');
+
+        let iconImg = document.createElement('img');
+        iconImg.src = 'images/trash.png';
+        iconImg.alt = 'Törlés';
+        iconImg.title = 'Törlés';
+
+        iconImg.addEventListener('click', function () {
+
+            document.getElementById('deletedTodoName').innerHTML = todo.getName();
+            var deleteConfirmationModal = new bootstrap.Modal(document.getElementById('deleteConfirmationModal'));
+            deleteConfirmationModal.show();
+            document.getElementById('confirmDeleteBtn').removeAllEventListeners();
+            document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
+                toDoList.splice(i, 1);
+                displayTodosRemove();
+                displayTodos();
+                deleteConfirmationModal.hide();
+            });
+
+        });
+
+        iconImg.addEventListener('mouseover', function () {
+            iconImg.classList.add('highlight');
+        });
+
+        iconImg.addEventListener('mouseout', function () {
+            iconImg.classList.remove('highlight');
+        });
+
+        nameContainer.appendChild(nameSpan);
+        todoElement.appendChild(nameContainer);
+        todoElement.appendChild(gapDiv);
+        todoElement.appendChild(iconImg);
+        Dplace.appendChild(todoElement);
+    });
+}
+
+
+EventTarget.prototype.removeAllEventListeners = function () {
+    var elClone = this.cloneNode(true);
+    var elParent = this.parentNode;
+    elParent.replaceChild(elClone, this);
+}
+
+console.log(toDoList);

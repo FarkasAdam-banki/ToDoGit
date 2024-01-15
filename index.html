@@ -15,28 +15,43 @@
     <div class="container">
         <header>
             <div class="top-bar">
-                <button class="top-button">MENÜ</button>
+                <div class="dropdown top-button">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Menü
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><span class="newbtn dropdown-item">Teendő hozzáadása</span></li>
+                        <li><span class="editbtn dropdown-item">Teendő Listája</span></li>
+                        <li><span class="deletebtn dropdown-item">Teendő törlése</span></li>
+                        <li><span class="bottombtn dropdown-item">Teendők szortirozása</span></li>
+                        <li><span class="bottombtn dropdown-item">Kész teendők</span></li>
+                    </ul>
+                </div>
                 <div class="title">TEENDŐK</div>
                 <div class="search-container">
                     <img src="images/search.png" alt="Keresés" title="Keresés" class="search-icon">
                     <input type="text" class="search-input">
                 </div>
                 <div class="sidenav">
-                    <div class="hover"> <img src="images/plus.png" alt="Teendő hozzáadása" title="Teendő hozzáadása" class="newbtn sideBtns"></div>
-                    <div class="hover"> <img src="images/edit.png" alt="Teendő Listája" title="Teendő Listája" class="editbtn sideBtns"></div>
-                    <div class="hover"><img src="images/trash.png" alt="Teendő törlése" title="Teendő törlése"  class="deletebtn sideBtns"></div>
+                    <div class="hover"> <img src="images/plus.png" alt="Teendő hozzáadása" title="Teendő hozzáadása"
+                            class="newbtn sideBtns"></div>
+                    <div class="hover"> <img src="images/edit.png" alt="Teendő Listája" title="Teendő Listája"
+                            class="editbtn sideBtns"></div>
+                    <div class="hover"><img src="images/trash.png" alt="Teendő törlése" title="Teendő törlése"
+                            class="deletebtn sideBtns"></div>
                     <div class="separator"></div>
-                    <div class="hover bottomdiv"> <img src="images/sorting.png" alt="Teendők szortirozása" title="Teendők szortirozása" class="sideBtns bottombtn">
+                    <div class="hover bottomdiv"> <img src="images/sorting.png" alt="Teendők szortirozása"
+                            title="Teendők szortirozása" class="sideBtns bottombtn">
                     </div>
-                    <div class="hover bottomdiv"> <img src="images/doubleCheck.png" alt="Kész teendők" title="Kész teendők" class="sideBtns bottombtn">
+                    <div class="hover bottomdiv"> <img src="images/doubleCheck.png" alt="Kész teendők"
+                            title="Kész teendők" class="sideBtns bottombtn">
                     </div>
-
                 </div>
         </header>
         <main>
             <section class="toDoList cont">
                 <div id="toDoS">
-                    
 
                 </div>
 
@@ -44,14 +59,11 @@
             <section class="toDoAdd cont">
                 <div class="toDoAddContainer">
                     <div class="toDoAddLeft">
-
                         <div class="toDoAddName_State">
-
                             <input type="text" class="toDoAddName" placeholder="A feladat neve...">
-
                             <form class="toDoAddState">
-
-                                <input type="range" class="form-range custom-range stateSlider" min="1" max="3" value="1"/>
+                                <input type="range" class="form-range custom-range stateSlider" min="1" max="3"
+                                    value="1" />
                             </form>
                             <div></div>
                             <div></div>
@@ -64,13 +76,9 @@
                             </div>
                         </div>
                         <p class="Labels">Alfeladatok:</p>
-                        <div><img src="images/plus.png" alt="Pluszjel" title="pluszjel"
-                                class="addSubTask hover2"></div>
-
+                        <div><img src="images/plus.png" alt="Pluszjel" title="pluszjel" class="addSubTask hover2"></div>
                         <div class="toDoAddSubtask">
-
                         </div>
-
                     </div>
                     <div class="toDoAddRight">
 
@@ -81,35 +89,51 @@
                         <div></div>
                         <div class="toDoAddRightCenter ">
                             <label class="Labels colorLabel">Feladat színe</label>
-
                             <br>
                             <input type="color" value="#ff0000" class="colorPicker" />
                         </div>
-
                     </div>
-
                 </div>
                 <div class="create"><button class="create-btn">Létrehozás</button></div>
-
             </section>
             <section class="toDoDel cont">
                 <div id="toDoS-Remove">
-                    
+
                 </div>
-
             </section>
-
             <div class="alertDiv"></div>
+
+            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1"
+                aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteConfirmationModalLabel">Törlés megerősítése</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Biztosan ki akarod törölni a(z) <span id="deletedTodoName"
+                                class="font-weight-bold"></span>-feladatot?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                id="cancelDeleteBtn">Nem</button>
+                            <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Igen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
 
     </main>
-    
+
     <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
-    
+
     <script src="js/subtasks.js"></script>
     <script src="js/todos.js"></script>
     <script src="js/script.js" type="text/javascript"></script>
-    
+
 </body>
 
 </html>

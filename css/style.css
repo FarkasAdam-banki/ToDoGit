@@ -310,8 +310,6 @@ main {
     margin-left: 10px;
 }
 
-
-
 .toDoAddSubTaskName{
     margin-bottom: 40px;
     border-bottom: #a1a1a1 1px solid;
@@ -337,30 +335,6 @@ input[type="date"] {
     cursor: pointer;
     border-radius: 3px;
 }
-.top-button {
-    display: inline-block;
-    overflow: hidden;
-    border-radius: 8px;
-  }
-  
-  .top-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #a1a1a1;
-    color: #222222;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.5s ease;
-    transition: color 0.5s ease;
-  }
-  
-  .top-button:hover {
-    background-color: #555;
-    color:#fff;
-  }
-
 
   .alertDiv{
     position: fixed;
@@ -374,6 +348,9 @@ input[type="date"] {
   }
   .alert{
     word-wrap: break-word;
+  }
+  .modal-body, .modal-footer,.modal-header{
+    background-color: #494949;
   }
 
 @media only screen and (max-width:1200px) {
