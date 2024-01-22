@@ -53,7 +53,28 @@ body {
     height: 25px;
     width: 175px;
 }
-
+.dropdown-menu{
+    padding: 4px 10px;
+    background-color:#BEBEBE ;
+    width: 250px;
+}
+.dropdown-menu .sortItems{
+    padding-top: 20px;
+    margin-left: 20px;
+}
+.sorting-btn{
+    padding: 0px;
+}
+.sorting-hover{
+    background-color: #BEBEBE;
+    border: 2px solid #BEBEBE;
+    border-radius: 10px;
+}
+.sorting-hover:hover{
+    background-color: #EEEEEE;
+    border: 2px solid #EEEEEE;
+    border-radius: 10px;
+}
 .sidenav {
     height: 100%;
     width: 100px;
@@ -62,12 +83,10 @@ body {
     top: 0;
     left: 0;
     background-color: #232323;
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 .sidenav a {
@@ -76,8 +95,7 @@ body {
     display: block;
 }
 
-.sidenav .newbtn{
-    
+.sidenav .newbtn {
     top: 10px;
     right: 25px;
     font-size: 36px;
@@ -88,9 +106,8 @@ body {
     width: 100%;
 }
 
-.sideBtns{
+.sideBtns {
     text-align: center;
-
 }
 
 main {
@@ -115,16 +132,20 @@ main {
     border-radius: 10px;
     height: 95%;
     padding: 5px 0;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .name {
     background-color: #2d2d2daa;
-    padding-right: 5%;
-    padding-left: 5%;
+    padding-right: 2%;
+    padding-left: 2%;
     border-radius: 15px;
-    
 }
+
+.name img {
+    padding-bottom: 3px;
+}
+
 
 .toDoAddName {
     padding: 5px;
@@ -142,53 +163,51 @@ main {
     font-size: 23px;
 }
 
-
 .toDoAddState {
     align-items: center;
     display: grid;
 
 }
 
-.toDoAddStateText{
+.toDoAddStateText {
     align-items: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-
-.toDoAddSubtask{
-    margin-top:5px ;
-    margin-bottom:30px ;
-    height:300px;
+.toDoAddSubtask {
+    margin-top: 5px;
+    margin-bottom: 30px;
+    height: 300px;
     width: 95%;
-    overflow:auto;
-    background-color:#2d2d2d;
-    color:white;
-    font-family:sans-serif;
-    padding:10px;
+    overflow: auto;
+    background-color: #2d2d2d;
+    color: white;
+    font-family: sans-serif;
+    padding: 10px;
 }
 
 .custom-range::-webkit-slider-thumb {
-    background-color: white; 
-    border: 1px solid #dee2e6; 
-    width: 1.2rem; 
-    height: 1.2rem; 
-    margin-top: -0.4rem; 
+    background-color: white;
+    border: 1px solid #dee2e6;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: -0.4rem;
 }
 
 .custom-range::-moz-range-thumb {
-    background-color: white; 
+    background-color: white;
     border: 1px solid #dee2e6;
-    width: 1.2rem; 
-    height: 1.2rem; 
-    margin-top: -0.4rem; 
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: -0.4rem;
 }
 
 .custom-range::-ms-thumb {
-    background-color: white; 
-    border: 1px solid #dee2e6; 
-    width: 1.2rem; 
-    height: 1.2rem; 
+    background-color: white;
+    border: 1px solid #dee2e6;
+    width: 1.2rem;
+    height: 1.2rem;
     margin-top: -0.4rem;
 }
 
@@ -204,7 +223,6 @@ main {
     background-color: black;
 }
 
-
 .custom-range::-moz-range-progress {
     background-color: white;
 }
@@ -213,72 +231,103 @@ main {
     background-color: white;
 }
 
-.leftState{
+.leftState {
     text-align: left;
 }
-.centerState{
+
+.centerState {
     text-align: center;
 }
-.rightState{
+
+.rightState {
     text-align: right;
 }
 
-.toDoAddRight{
-   
+.toDoAddRight {
     display: grid;
     grid-template-rows: 1fr 1px 1fr;
 }
-.toDoAddRightCenter{
-   
+
+.toDoAddRightCenter {
     text-align: center;
 }
 
-.colorPicker{
+.colorPicker {
     width: 300px;
     height: 300px;
 }
-.colorLabel{
+
+.colorLabel {
     text-align: left;
 }
-.Labels{
+
+.Labels {
     font-size: x-large;
     color: #AFAFAF;
     font-weight: bold;
 }
 
-.create-btn{
+.create-btn {
     border: black solid 2px;
-    font-size:x-large;
+    font-size: x-large;
     background-color: #005e24;
     color: #fff;
     padding: 15px 40px;
     border-radius: 25px;
     text-align: center;
     font-weight: bold;
-
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
-.create{
+
+.create-btn:hover {
+    background-color: #058a3e;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.editToDo-btn {
+    border: black solid 2px;
+    font-size: x-large;
+    background-color: #646464;
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 25px;
+    text-align: center;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.editToDo-btn:hover {
+    background-color: #555555;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.create {
     text-align: center;
 }
 
-.highlight{
-    background-color: red;
-    opacity: 0.5;
-    border-radius: 30%;
-   
+.edit {
+    text-align: center;
 }
 
-.highlight2 img:hover{
+.highlight {
     background-color: red;
     opacity: 0.5;
     border-radius: 30%;
-   
 }
-.hover:hover{
-    border-color: #a1a1a1 ;
-    
+
+.highlight2 img:hover {
+    background-color: red;
+    opacity: 0.5;
+    border-radius: 30%;
 }
-.hover{
+
+.hover:hover {
+    border-color: #a1a1a1;
+}
+
+.hover {
     border: 4px solid;
     border-color: #232323;
     border-radius: 20%;
@@ -286,11 +335,11 @@ main {
     padding: 10px;
 }
 
-.hover2:hover{
-    border-color: #a1a1a1 ;
-    
+.hover2:hover {
+    border-color: #a1a1a1;
 }
-.hover2{
+
+.hover2 {
     border: 4px solid;
     border-color: #2d2d2d;
     border-radius: 20%;
@@ -310,17 +359,16 @@ main {
     margin-left: 10px;
 }
 
-.toDoAddSubTaskName{
+.toDoAddSubTaskName {
     margin-bottom: 40px;
     border-bottom: #a1a1a1 1px solid;
 }
 
-
 input[type="date"] {
     background-color: #c0c0c0;
-    padding: 20px; 
-    width: 218px; 
-    height: 100px; 
+    padding: 20px;
+    width: 218px;
+    height: 100px;
     font-family: "Roboto Mono", monospace;
     color: #000000;
     font-size: 18px;
@@ -331,47 +379,52 @@ input[type="date"] {
 
 ::-webkit-calendar-picker-indicator {
     background-color: #a1a1a1;
-    padding: 10px; 
+    padding: 10px;
     cursor: pointer;
     border-radius: 3px;
 }
 
-  .alertDiv{
+.alertDiv {
     position: fixed;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  width: 700px;
-  text-align: center;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: auto;
+    text-align: center;
 
-  }
-  .alert{
+}
+
+.alert {
     word-wrap: break-word;
-  }
-  .modal-body, .modal-footer,.modal-header{
+}
+
+.modal-body,
+.modal-footer,
+.modal-header {
     background-color: #494949;
-  }
+}
 
 @media only screen and (max-width:1200px) {
-    .title{
+    .title {
         display: none;
     }
 }
-    
+
 @media only screen and (max-width:800px) {
-    .sidenav{
+    .sidenav {
         display: none;
     }
-    main{
-        margin-left:0px;
+
+    main {
+        margin-left: 0px;
     }
 
 }
 
 @media only screen and (min-width:800px) {
 
-    .top-button{
+    .top-button {
         display: none;
     }
 }
@@ -380,7 +433,7 @@ input[type="date"] {
     #toDoS {
         height: fit-content;
         display: grid;
-        grid-template-columns: 1fr 1fr ;
+        grid-template-columns: 1fr 1fr;
     }
 
 }
@@ -391,7 +444,8 @@ input[type="date"] {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-    .toDoAddState{
+
+    .toDoAddState {
         padding-left: 20px;
     }
 
@@ -401,9 +455,10 @@ input[type="date"] {
     #toDoS-Remove {
         height: fit-content;
         display: grid;
-        grid-template-columns: 1fr 1fr ;
+        grid-template-columns: 1fr 1fr;
     }
-    .top-button{
+
+    .top-button {
         display: none;
     }
 
@@ -424,28 +479,30 @@ input[type="date"] {
         width: 100%;
         grid-template-columns: 1fr;
     }
-    .toDoAddSubTaskName{
+
+    .toDoAddSubTaskName {
         display: grid;
         width: 100%;
         grid-template-columns: min-content 1fr 1fr;
     }
-    .toDoAddRightCenter{
+
+    .toDoAddRightCenter {
         height: min-content;
     }
-    
-    .toDoAddSubtask{
-        margin-top:5px ;
-        margin-bottom:30px ;
-        height:300px;
+
+    .toDoAddSubtask {
+        margin-top: 5px;
+        margin-bottom: 30px;
+        height: 300px;
         width: 95%;
-        overflow:auto;
-        background-color:#2d2d2d;
-        color:white;
-        font-family:sans-serif;
-        padding:10px;
+        overflow: auto;
+        background-color: #2d2d2d;
+        color: white;
+        font-family: sans-serif;
+        padding: 10px;
     }
 
-    .toDoAddName_State{
+    .toDoAddName_State {
         width: 50%;
         margin-left: auto;
         margin-right: auto;
@@ -453,7 +510,7 @@ input[type="date"] {
 }
 
 @media only screen and (min-width:1300px) {
-    .toDoAddContainer{
+    .toDoAddContainer {
         display: grid;
         grid-template-columns: 60% 1fr;
     }
@@ -464,21 +521,30 @@ input[type="date"] {
         grid-template-columns: 1fr 1fr 10%;
         margin: 0px;
     }
-    .toDoAddSubTaskName{
+
+    .toDoAddSubTaskName {
         display: grid;
         width: 95%;
         grid-template-columns: min-content 1fr 1fr;
-    
+
     }
-    .toDoAddSubtask{
-        margin-top:5px ;
-        height:500px;
+
+    .toDoAddSubtask {
+        margin-top: 5px;
+        height: 500px;
         width: 95%;
-        overflow:auto;
-        background-color:#2d2d2d;
-        color:white;
-        font-family:sans-serif;
-        padding:10px;
+        overflow: auto;
+        background-color: #2d2d2d;
+        color: white;
+        font-family: sans-serif;
+        padding: 10px;
     }
-    
+
+}
+
+@media only screen and (max-width:350px) {
+    .search-icon {
+        display: none;
+    }
+
 }

@@ -41,9 +41,27 @@
                     <div class="hover"><img src="images/trash.png" alt="Teendő törlése" title="Teendő törlése"
                             class="deletebtn sideBtns"></div>
                     <div class="separator"></div>
-                    <div class="hover bottomdiv"> <img src="images/sorting.png" alt="Teendők szortirozása"
-                            title="Teendők szortirozása" class="sideBtns bottombtn">
+                    <div class="btn-group dropend hover bottomdiv">
+                        <button type="button" class="btn sorting-btn" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="images/sorting.png" alt="Teendők szortirozása" title="Teendők szortirozása"
+                                class="sideBtns bottombtn">
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>dátum</li>
+                            <li class="sortItems"><img src="images/sortdatedown.png" alt="Csökkenő sorrend dátum szerint"
+                                    title="Csökkenő sorrend dátum szerint" class="sorting-hover"> Csökkenő</li>
+                            <li class="sortItems"><img src="images/sortdateup.png" alt="Növekvő sorrend dátum szerint"
+                                    title="Növekvő sorrend dátum szerint" class="sorting-hover"> Növekvő</li>
+                                    <li class="dropdown-divider"></li>
+                            <li>Készültség</li>
+                            <li class="sortItems"><img src="images/sortstatedown.png" alt="Csökkenő sorrend készültség szerint"
+                                    title="Csökkenő sorrend készültség szerint" class="sorting-hover"> Csökkenő</li>
+                            <li class="sortItems"><img src="images/sortstateup.png" alt="Növekvő sorrend készültség szerint"
+                                    title="Növekvő sorrend készültség szerint" class="sorting-hover"> Növekvő</li>
+                        </ul>
                     </div>
+
                     <div class="hover bottomdiv"> <img src="images/doubleCheck.png" alt="Kész teendők"
                             title="Kész teendők" class="sideBtns bottombtn">
                     </div>
@@ -76,7 +94,8 @@
                             </div>
                         </div>
                         <p class="Labels">Alfeladatok:</p>
-                        <div><img src="images/plus.png" alt="Pluszjel" title="pluszjel" class="addSubTask hover2"></div>
+                        <div><img src="images/addsub.png" alt="Alfeladat hozzáadása" title="Alfeladat hozzáadása"
+                                class="addSubTask hover2"></div>
                         <div class="toDoAddSubtask">
                         </div>
                     </div>
@@ -90,11 +109,12 @@
                         <div class="toDoAddRightCenter ">
                             <label class="Labels colorLabel">Feladat színe</label>
                             <br>
-                            <input type="color" value="#ff0000" class="colorPicker" />
+                            <input type="color" value="#0000ff" class="colorPicker" />
                         </div>
                     </div>
                 </div>
                 <div class="create"><button class="create-btn">Létrehozás</button></div>
+                <div class="edit"><button class="editToDo-btn">Módosítás</button></div>
             </section>
             <section class="toDoDel cont">
                 <div id="toDoS-Remove">
