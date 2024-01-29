@@ -1,5 +1,5 @@
 var toDoList = [];
-
+toDoListHelper = [];
 var names = [];
 
 
@@ -13,6 +13,7 @@ function start() {
     clear();
     displayTodos();
     displayTodosRemove()
+    updateHelpList();
     document.querySelector(".toDoList").style.display = "block";
 
 }
@@ -43,8 +44,14 @@ function isEmpty(str) {
 var add = document.querySelectorAll(".newbtn");
 var edit = document.querySelectorAll(".editbtn");
 var del = document.querySelectorAll(".deletebtn");
-var bottombtns = document.querySelectorAll(".bottombtn");
+var bottombtns = document.querySelectorAll(".bottomdiv");
 var subtasks = document.querySelector(".addSubTask");
+var sortDateDown = document.querySelectorAll(".sortByDateDown-btn");
+var sortDateUp = document.querySelectorAll(".sortByDateUp-btn");
+var sortStateDown = document.querySelectorAll(".sortByStateDown-btn")
+var sortStateUp = document.querySelectorAll(".sortByStateUp-btn")
+var doneBtn = document.querySelectorAll(".doneToDo-btn");
+var doneBtnPressed = false;
 
 add.forEach(function (button) {
     button.addEventListener("click", function () {
@@ -58,6 +65,13 @@ add.forEach(function (button) {
         document.querySelector(".title").innerHTML = "Új feladat létrehozása";
         disappear();
         updateSubTaskStates();
+        doneBtnPressed = false;
+        document.querySelector(".done-btn-div").style.borderColor = "";
+        document.querySelector(".done-check").style.display = "none";
+        toDoList = [...toDoListHelper];
+        displayTodos();
+        displayTodosRemove();
+        
 
     })
 })
@@ -68,6 +82,7 @@ edit.forEach(function (button) {
         document.querySelector(".title").innerHTML = "TEENDŐK";
         appear();
         updateSubTaskStates();
+
     })
 })
 del.forEach(function (button) {
@@ -75,11 +90,79 @@ del.forEach(function (button) {
         clear();
         document.querySelector(".toDoDel").style.display = "block";
         document.querySelector(".title").innerHTML = "TEENDŐK-TÖRLÉSE";
-        appear();
+        disappear();
         updateSubTaskStates();
+        doneBtnPressed = false;
+        document.querySelector(".done-btn-div").style.borderColor = "";
+        document.querySelector(".done-check").style.display = "none";
+        toDoList = [...toDoListHelper];
+        displayTodos();
+        displayTodosRemove();
+        
+
     })
 
 })
+
+
+function updateHelpList() {
+    toDoListHelper = [...toDoList];
+}
+
+sortDateDown.forEach(function (button) {
+    button.addEventListener("click", function () {
+        toDoList = [...toDoListHelper];
+        displayTodos();
+        displayTodosRemove();
+
+    })
+})
+
+sortDateUp.forEach(function (button) {
+    button.addEventListener("click", function () {
+        toDoList = [...toDoListHelper];
+        toDoList = toDoList.reverse();
+        displayTodos();
+        displayTodosRemove();
+
+    })
+})
+
+sortStateDown.forEach(function (button) {
+    button.addEventListener("click", function () {
+        toDoList = [...toDoListHelper];
+        toDoList.sort((a, b) => b.getState() - a.getState());
+        displayTodos();
+        displayTodosRemove();
+
+    })
+})
+
+sortStateUp.forEach(function (button) {
+    button.addEventListener("click", function () {
+        toDoList = [...toDoListHelper];
+        toDoList.sort((a, b) => a.getState() - b.getState());
+        displayTodos();
+        displayTodosRemove();
+
+    })
+})
+
+doneBtn.forEach(function (button) {
+    button.addEventListener("click", function () {
+        if (doneBtnPressed) {
+            doneBtnPressed = false;
+            document.querySelector(".done-btn-div").style.borderColor = "";
+            document.querySelector(".done-check").style.display = "none";
+        } else {
+            doneBtnPressed = true;
+            document.querySelector(".done-btn-div").style.borderColor = "#00ff00";
+            document.querySelector(".done-check").style.display = "inline";
+        }
+        displayTodos();
+    })
+})
+
 
 var mainTaskStatus = 1;
 
@@ -90,15 +173,15 @@ function updateSubTaskStates() {
         document.querySelector(".stateSlider").disabled = false;
         return;
     }
-    let allSubtasksComplete = true; 
+    let allSubtasksComplete = true;
 
-    
+
     for (let i = 0; i < subtaskContainers.length; i++) {
         const subtaskContainer = subtaskContainers[i];
         const subtaskStateInput = subtaskContainer.querySelector('.stateSliderSub');
         const subtaskState = parseInt(subtaskStateInput.value);
 
-        if(subtaskState==2 || subtaskState==3 && mainTaskStatus==1){
+        if (subtaskState == 2 || subtaskState == 3 && mainTaskStatus == 1) {
             mainTaskStatus = 2;
         }
         if (subtaskState !== 3) {
@@ -174,21 +257,16 @@ for (var i = 0; i < toDoList.length; i++) {
     names.push(lowerName);
 
 }
-console.log(names)
 
 start();
 var currentDate = new Date();
 var formattedCurrentDate = currentDate.toISOString().split('T')[0];
-console.log(formattedCurrentDate);
 
 document.querySelector(".create-btn").addEventListener("click", function () {
     const name = document.querySelector(".toDoAddName").value.trimEnd().trimStart();
     const state = document.querySelector(".stateSlider").value;
     const deadline = document.querySelector('input[type="date"]').value;
     var color = document.querySelector(".colorPicker").value;
-    console.log(deadline);
-    console.log(color);
-   
 
     if (isEmpty(name)) {
         document.querySelector(".alertDiv").innerHTML = '<div class="auto-close alert alert-danger alert-dismissible fade show" role="alert">' +
@@ -234,9 +312,7 @@ document.querySelector(".create-btn").addEventListener("click", function () {
 
         toDoList.push(todo);
         names.push(todo.getName().toLowerCase());
-        console.log(names)
 
-        console.log(toDoList);
         if (deadline != "") {
             document.querySelector(".alertDiv").innerHTML = '<div class="auto-close alert alert-success alert-dismissible fade show" role="alert">' +
                 '<strong>A Teendő létrehozása sikeres volt!</strong><br>Mivel határidőt állitottál be a feladathoz igy a háttérszint sárgára állitottuk.' +
@@ -252,20 +328,18 @@ document.querySelector(".create-btn").addEventListener("click", function () {
         let placesToAdd = document.querySelector(".toDoAddSubtask")
         placesToAdd.innerHTML = ""
         addDel();
+        updateHelpList();
         displayTodos();
         displayTodosRemove();
         updateSubTaskStates();
-
-
     }
-
 });
 
 function editTodo(todoIndex) {
     addDel();
     clear();
     disappear();
-    updateSubTaskStates();
+
     document.querySelector(".create").style.display = "none";
     document.querySelector(".edit").style.display = "block";
     const todo = toDoList[todoIndex];
@@ -279,6 +353,7 @@ function editTodo(todoIndex) {
 
     let subtaskContainer = document.querySelector(".toDoAddSubtask");
     subtaskContainer.innerHTML = "";
+    updateSubTaskStates();
     for (let i = 0; todo.getSubtasks().length > i; i++) {
 
         let subTaskElement = document.createElement("div");
@@ -316,9 +391,6 @@ function editTodo(todoIndex) {
         const state = document.querySelector(".stateSlider").value;
         const deadline = document.querySelector('input[type="date"]').value;
         var color = document.querySelector(".colorPicker").value;
-        console.log(deadline);
-        console.log(color);
-        console.log(name);
 
         if (isEmpty(name)) {
             document.querySelector(".alertDiv").innerHTML = '<div class="auto-close alert alert-danger alert-dismissible fade show" role="alert">' +
@@ -347,12 +419,10 @@ function editTodo(todoIndex) {
             }
             names.splice(todoIndex, 1, name.toLowerCase());
 
-            console.log(names)
             todo.setName(name);
             todo.setState(state);
             todo.setDeadline(deadline);
             todo.setColor(color);
-
 
             let counter = 1;
             const subtaskContainers = document.querySelectorAll('.toDoAddSubTaskName');
@@ -369,7 +439,6 @@ function editTodo(todoIndex) {
                 counter++;
             });
 
-            console.log(toDoList);
             if (deadline != "") {
                 document.querySelector(".alertDiv").innerHTML = '<div class="auto-close alert alert-success alert-dismissible fade show" role="alert">' +
                     '<strong>A Teendő módositása sikeres volt!</strong><br>Mivel határidőt állitottál be a feladathoz igy a háttérszint sárgára állitottuk.' +
@@ -385,6 +454,7 @@ function editTodo(todoIndex) {
             let placesToAdd = document.querySelector(".toDoAddSubtask")
             placesToAdd.innerHTML = ""
             addDel();
+            updateHelpList();
             displayTodos();
             displayTodosRemove();
             clear();
@@ -392,9 +462,9 @@ function editTodo(todoIndex) {
             document.querySelector(".title").innerHTML = "TEENDŐK";
             appear();
             updateSubTaskStates();
-
-
-
+            toDoList = [...toDoListHelper];
+            displayTodos();
+            displayTodosRemove();
         }
     });
 
@@ -407,6 +477,20 @@ function displayTodos() {
     for (let i = 0; i < toDoList.length; i++) {
         let todoElement = document.createElement('div');
         todoElement.classList.add('toDo');
+
+        if (toDoList[i].getState() == 3 && doneBtnPressed) {
+            todoElement.style.display = "grid";
+
+        } else if (toDoList[i].getState() != 3 && doneBtnPressed) {
+            todoElement.style.display = "none";
+
+        } else if (toDoList[i].getState() == 3 && !doneBtnPressed) {
+            todoElement.style.display = "none";
+
+        } else {
+            todoElement.style.display = "grid";
+
+        }
 
         let nameContainer = document.createElement('div');
         nameContainer.classList.add('nameContainer');
@@ -500,6 +584,7 @@ function displayTodosRemove() {
             document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
                 toDoList.splice(i, 1);
                 names.splice(i, 1);
+                updateHelpList();
                 displayTodosRemove();
                 displayTodos();
                 deleteConfirmationModal.hide();
@@ -534,8 +619,4 @@ EventTarget.prototype.removeAllEventListeners = function () {
     var elParent = this.parentNode;
     elParent.replaceChild(elClone, this);
 }
-
-console.log(toDoList);
-
-console.log(toDoList[2].getSubtasks()[0].getSName());
 

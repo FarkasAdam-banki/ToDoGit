@@ -24,10 +24,24 @@
                         <li><span class="newbtn dropdown-item">Teendő hozzáadása</span></li>
                         <li><span class="editbtn dropdown-item">Teendő Listája</span></li>
                         <li><span class="deletebtn dropdown-item">Teendő törlése</span></li>
-                        <li><span class="bottombtn dropdown-item">Teendők szortirozása</span></li>
-                        <li><span class="bottombtn dropdown-item">Kész teendők</span></li>
+
+                        <div class="dropdown">
+                            <li class="sub-menu">
+                                <a class="bottombtn dropdown-item dropdown-toggle"
+                                    data-toggle="dropdown">Teendők szortírozása</a>
+                                <ul class="dropdown-menu dropdown-submenu">
+                                    <li><span class="dropdown-item sortByDateDown-btn">Dátum: Csökkenő</span></li>
+                                    <li><span class="dropdown-item sortByDateUp-btn">Dátum: Növekvő</span></li>
+                                    <li><span class="dropdown-item sortByStateDown-btn">Státusz: Csökkenő</span></li>
+                                    <li><span class="dropdown-item sortByStateUp-btn">Státusz: Növekvő</span></li>
+                                </ul>
+                            </li>
+                        </div>
+
+                        <li><span class="dropdown-item doneToDo-btn">Kész teendők <img src="images/miniCheck.png" alt="pipa" title="pipa" class="done-check" style="display: none;"></span></li>
                     </ul>
                 </div>
+
                 <div class="title">TEENDŐK</div>
                 <div class="search-container">
                     <img src="images/search.png" alt="Keresés" title="Keresés" class="search-icon">
@@ -42,28 +56,32 @@
                             class="deletebtn sideBtns"></div>
                     <div class="separator"></div>
                     <div class="btn-group dropend hover bottomdiv">
-                        <button type="button" class="btn sorting-btn" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <button type="button" class="btn sorting-btn" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="images/sorting.png" alt="Teendők szortirozása" title="Teendők szortirozása"
                                 class="sideBtns bottombtn">
                         </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu sortMenu">
                             <li>dátum</li>
-                            <li class="sortItems"><img src="images/sortdatedown.png" alt="Csökkenő sorrend dátum szerint"
-                                    title="Csökkenő sorrend dátum szerint" class="sorting-hover"> Csökkenő</li>
+                            <li class="sortItems"><img src="images/sortdatedown.png"
+                                    alt="Csökkenő sorrend dátum szerint" title="Csökkenő sorrend dátum szerint"
+                                    class="sorting-hover sortByDateDown-btn"> Csökkenő</li>
                             <li class="sortItems"><img src="images/sortdateup.png" alt="Növekvő sorrend dátum szerint"
-                                    title="Növekvő sorrend dátum szerint" class="sorting-hover"> Növekvő</li>
-                                    <li class="dropdown-divider"></li>
+                                    title="Növekvő sorrend dátum szerint" class="sorting-hover sortByDateUp-btn">
+                                Növekvő</li>
+                            <li class="dropdown-divider"></li>
                             <li>Készültség</li>
-                            <li class="sortItems"><img src="images/sortstatedown.png" alt="Csökkenő sorrend készültség szerint"
-                                    title="Csökkenő sorrend készültség szerint" class="sorting-hover"> Csökkenő</li>
-                            <li class="sortItems"><img src="images/sortstateup.png" alt="Növekvő sorrend készültség szerint"
-                                    title="Növekvő sorrend készültség szerint" class="sorting-hover"> Növekvő</li>
+                            <li class="sortItems"><img src="images/sortstatedown.png"
+                                    alt="Csökkenő sorrend készültség szerint"
+                                    title="Csökkenő sorrend készültség szerint"
+                                    class="sorting-hover sortByStateDown-btn"> Csökkenő</li>
+                            <li class="sortItems"><img src="images/sortstateup.png"
+                                    alt="Növekvő sorrend készültség szerint" title="Növekvő sorrend készültség szerint"
+                                    class="sorting-hover sortByStateUp-btn"> Növekvő</li>
                         </ul>
                     </div>
 
-                    <div class="hover bottomdiv"> <img src="images/doubleCheck.png" alt="Kész teendők"
-                            title="Kész teendők" class="sideBtns bottombtn">
+                    <div class="hover bottomdiv done-btn-div"> <img src="images/doubleCheck.png" alt="Kész teendők"
+                            title="Kész teendők" class="sideBtns bottombtn doneToDo-btn">
                     </div>
                 </div>
         </header>

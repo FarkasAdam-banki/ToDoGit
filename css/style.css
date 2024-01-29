@@ -62,6 +62,13 @@ body {
     padding-top: 20px;
     margin-left: 20px;
 }
+.dropdown-item{
+    color: #000000;
+}
+.sub-menu:hover .dropdown-submenu {
+    display: block;
+  }
+  
 .sorting-btn{
     padding: 0px;
 }
