@@ -52,6 +52,8 @@ var sortStateDown = document.querySelectorAll(".sortByStateDown-btn")
 var sortStateUp = document.querySelectorAll(".sortByStateUp-btn")
 var doneBtn = document.querySelectorAll(".doneToDo-btn");
 var doneBtnPressed = false;
+var searchbarValue = document.querySelector(".search-input").value;
+var searchbar = document.querySelector(".search-input");
 
 add.forEach(function (button) {
     button.addEventListener("click", function () {
@@ -470,6 +472,11 @@ function editTodo(todoIndex) {
 
 }
 
+searchbar.addEventListener("input", function(){
+    searchbarValue = document.querySelector(".search-input").value;
+    displayTodos();
+})
+
 function displayTodos() {
     let Lplace = document.querySelector("#toDoS");
     Lplace.innerHTML = "";
@@ -490,6 +497,9 @@ function displayTodos() {
         } else {
             todoElement.style.display = "grid";
 
+        }
+        if(!isEmpty(searchbarValue) && !(toDoList[i].getName().toLowerCase().includes(searchbarValue.toLowerCase()))){
+            todoElement.style.display = "none";
         }
 
         let nameContainer = document.createElement('div');
