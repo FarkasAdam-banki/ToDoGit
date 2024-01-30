@@ -54,6 +54,7 @@ var doneBtn = document.querySelectorAll(".doneToDo-btn");
 var doneBtnPressed = false;
 var searchbarValue = document.querySelector(".search-input").value;
 var searchbar = document.querySelector(".search-input");
+var backbtn = document.querySelector(".back-icon");
 
 add.forEach(function (button) {
     button.addEventListener("click", function () {
@@ -70,6 +71,7 @@ add.forEach(function (button) {
         doneBtnPressed = false;
         document.querySelector(".done-btn-div").style.borderColor = "";
         document.querySelector(".done-check").style.display = "none";
+        backbtn.style.display = "block";
         toDoList = [...toDoListHelper];
         displayTodos();
         displayTodosRemove();
@@ -82,6 +84,7 @@ edit.forEach(function (button) {
         clear();
         document.querySelector(".toDoList").style.display = "block";
         document.querySelector(".title").innerHTML = "TEENDŐK";
+        backbtn.style.display = "none";
         appear();
         updateSubTaskStates();
 
@@ -97,6 +100,7 @@ del.forEach(function (button) {
         doneBtnPressed = false;
         document.querySelector(".done-btn-div").style.borderColor = "";
         document.querySelector(".done-check").style.display = "none";
+        backbtn.style.display = "block";
         toDoList = [...toDoListHelper];
         displayTodos();
         displayTodosRemove();
@@ -347,7 +351,7 @@ function editTodo(todoIndex) {
     const todo = toDoList[todoIndex];
     document.querySelector(".toDoAdd").style.display = "block";
     document.querySelector(".title").innerHTML = "A(z) " + todo.getName() + " feladat módositása";
-
+    backbtn.style.display = "block";
     document.querySelector(".toDoAddName").value = todo.getName();
     document.querySelector(".stateSlider").value = todo.getState();
     document.querySelector('input[type="date"]').value = todo.getDeadline();
