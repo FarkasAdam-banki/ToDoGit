@@ -1,7 +1,6 @@
 var toDoList = [];
-toDoListHelper = [];
+var toDoListHelper = [];
 var names = [];
-
 
 function clear() {
     var sections = document.getElementsByClassName("cont");
@@ -15,6 +14,7 @@ function start() {
     displayTodosRemove()
     updateHelpList();
     document.querySelector(".toDoList").style.display = "block";
+    document.querySelector(".title").innerHTML = "TEENDŐK";
 
 }
 
@@ -23,6 +23,12 @@ function disappear() {
     for (let i = 0; i < bottombtns.length; i++) {
         bottombtns[i].style.display = "none";
     }
+    if (!doneBtnPressed) {
+        document.querySelector(".done-btn-div").style.borderColor = "";
+        document.querySelector(".done-check").style.display = "none";
+    }
+
+    backbtn.style.display = "block";
 }
 
 function appear() {
@@ -30,6 +36,7 @@ function appear() {
     for (let i = 0; i < bottombtns.length; i++) {
         bottombtns[i].style.display = "block";
     }
+    backbtn.style.display = "none";
 }
 function addDel() {
     document.querySelector(".toDoAddName").value = null;
@@ -66,17 +73,12 @@ add.forEach(function (button) {
         clear();
         document.querySelector(".toDoAdd").style.display = "block";
         document.querySelector(".title").innerHTML = "Új feladat létrehozása";
+        doneBtnPressed = false;
         disappear();
         updateSubTaskStates();
-        doneBtnPressed = false;
-        document.querySelector(".done-btn-div").style.borderColor = "";
-        document.querySelector(".done-check").style.display = "none";
-        backbtn.style.display = "block";
         toDoList = [...toDoListHelper];
         displayTodos();
         displayTodosRemove();
-        
-
     })
 })
 edit.forEach(function (button) {
@@ -84,7 +86,6 @@ edit.forEach(function (button) {
         clear();
         document.querySelector(".toDoList").style.display = "block";
         document.querySelector(".title").innerHTML = "TEENDŐK";
-        backbtn.style.display = "none";
         appear();
         updateSubTaskStates();
 
@@ -95,16 +96,13 @@ del.forEach(function (button) {
         clear();
         document.querySelector(".toDoDel").style.display = "block";
         document.querySelector(".title").innerHTML = "TEENDŐK-TÖRLÉSE";
+        doneBtnPressed = false;
         disappear();
         updateSubTaskStates();
-        doneBtnPressed = false;
-        document.querySelector(".done-btn-div").style.borderColor = "";
-        document.querySelector(".done-check").style.display = "none";
-        backbtn.style.display = "block";
         toDoList = [...toDoListHelper];
         displayTodos();
         displayTodosRemove();
-        
+
 
     })
 
@@ -268,6 +266,7 @@ start();
 var currentDate = new Date();
 var formattedCurrentDate = currentDate.toISOString().split('T')[0];
 
+
 document.querySelector(".create-btn").addEventListener("click", function () {
     const name = document.querySelector(".toDoAddName").value.trimEnd().trimStart();
     const state = document.querySelector(".stateSlider").value;
@@ -350,8 +349,8 @@ function editTodo(todoIndex) {
     document.querySelector(".edit").style.display = "block";
     const todo = toDoList[todoIndex];
     document.querySelector(".toDoAdd").style.display = "block";
-    document.querySelector(".title").innerHTML = "A(z) " + todo.getName() + " feladat módositása";
-    backbtn.style.display = "block";
+    let truncatedName = todo.getName().substring(0, 20);
+    document.querySelector(".title").innerHTML = "A(z) " + (truncatedName.length < todo.getName().length ? truncatedName + "..." : truncatedName) + " Feladat módosítása";
     document.querySelector(".toDoAddName").value = todo.getName();
     document.querySelector(".stateSlider").value = todo.getState();
     document.querySelector('input[type="date"]').value = todo.getDeadline();
@@ -461,8 +460,6 @@ function editTodo(todoIndex) {
             placesToAdd.innerHTML = ""
             addDel();
             updateHelpList();
-            displayTodos();
-            displayTodosRemove();
             clear();
             document.querySelector(".toDoList").style.display = "block";
             document.querySelector(".title").innerHTML = "TEENDŐK";
@@ -476,7 +473,7 @@ function editTodo(todoIndex) {
 
 }
 
-searchbar.addEventListener("input", function(){
+searchbar.addEventListener("input", function () {
     searchbarValue = document.querySelector(".search-input").value;
     displayTodos();
 })
@@ -502,7 +499,7 @@ function displayTodos() {
             todoElement.style.display = "grid";
 
         }
-        if(!isEmpty(searchbarValue) && !(toDoList[i].getName().toLowerCase().includes(searchbarValue.toLowerCase()))){
+        if (!isEmpty(searchbarValue) && !(toDoList[i].getName().toLowerCase().includes(searchbarValue.toLowerCase()))) {
             todoElement.style.display = "none";
         }
 
@@ -512,7 +509,10 @@ function displayTodos() {
 
         let nameSpan = document.createElement('span');
         nameSpan.classList.add('name');
-        nameSpan.textContent = toDoList[i].getName() + " ";
+        
+        let truncatedName = toDoList[i].getName().substring(0, 10);
+        nameSpan.textContent = truncatedName.length < toDoList[i].getName().length ? truncatedName + "..." : truncatedName;
+        
 
         if (toDoList[i].getSubtasks().length > 0) {
             let subtaskIcon = document.createElement('img');

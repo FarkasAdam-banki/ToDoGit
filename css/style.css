@@ -324,6 +324,9 @@ main {
 .edit {
     text-align: center;
 }
+.back-icon{
+    margin: 3px;
+}
 
 .highlight {
     background-color: red;
